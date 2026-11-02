@@ -16,10 +16,10 @@
   --color-paper: #f3f0ea;
   --color-mist: #a9a59d;
   --color-mist-2: #8e8a83;
-  --color-brand-300: #ff9f7f;
-  --color-brand-400: #ff7b52;
-  --color-brand-500: #ff5b2e;
-  --color-brand-600: #cc3a0e;
+  --color-brand-300: #b4e8cb;
+  --color-brand-400: #86d6aa;
+  --color-brand-500: #5cbf8a;
+  --color-brand-600: #3a9b68;
 
   /* shadcn tokens */
   --color-background: var(--background);
@@ -48,7 +48,6 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  --animate-marquee: marquee 45s linear infinite;
   --animate-rise: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   --animate-pulse-dot: pulse-dot 2s ease-out infinite;
 }
@@ -61,7 +60,7 @@
   --card-foreground: #f3f0ea;
   --popover: #121214;
   --popover-foreground: #f3f0ea;
-  --primary: #ff5b2e;
+  --primary: #86d6aa;
   --primary-foreground: #0b0b0c;
   --secondary: #1a1a1d;
   --secondary-foreground: #f3f0ea;
@@ -72,7 +71,7 @@
   --destructive: #ff6b6b;
   --border: rgb(255 255 255 / 0.1);
   --input: rgb(255 255 255 / 0.15);
-  --ring: #ff7b52;
+  --ring: #86d6aa;
   --radius: 0.75rem;
 }
 
@@ -104,12 +103,6 @@
   }
 }
 
-@keyframes marquee {
-  to {
-    translate: -50% 0;
-  }
-}
-
 @keyframes rise {
   from {
     opacity: 0;
@@ -125,11 +118,11 @@
 
 @keyframes pulse-dot {
   0% {
-    box-shadow: 0 0 0 0 rgb(255 91 46 / 0.6);
+    box-shadow: 0 0 0 0 rgb(92 191 138 / 0.6);
   }
   80%,
   100% {
-    box-shadow: 0 0 0 8px rgb(255 91 46 / 0);
+    box-shadow: 0 0 0 8px rgb(92 191 138 / 0);
   }
 }
 
@@ -157,27 +150,41 @@
   }
 }
 
-/* Edge fade for the skill ticker */
-.marquee-mask {
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+/* Tech ticker in the hero */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
 }
-.marquee-mask:hover .animate-marquee,
-.marquee-mask:focus-within .animate-marquee {
+.marquee {
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track {
   animation-play-state: paused;
-}
-
-/* Card spotlight that follows the pointer (vars set by SpotlightCard) */
-.spotlight {
-  background-image: radial-gradient(
-    28rem circle at var(--x, 50%) var(--y, -20%),
-    rgb(255 91 46 / 0.1),
-    transparent 60%
-  );
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  /* No motion: show the list once, wrapped, inside the page margins */
+  .marquee {
+    mask-image: none;
+    padding-inline: max(1rem, calc((100% - 1040px) / 2 + 1.5rem));
+  }
+  .marquee-track {
+    animation: none !important;
+    width: auto;
+  }
+  .marquee-copy {
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
+  }
+  .marquee-copy[aria-hidden="true"] {
+    display: none;
   }
   *,
   *::before,
