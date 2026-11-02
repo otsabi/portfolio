@@ -11,17 +11,15 @@ export const currentSince = startYear(currentJob.period);
 export const isCurrent = (period: string) => /now|present/i.test(period);
 export const firstYear = Math.min(...experience.map((job) => startYear(job.period)));
 
-/** Tools for the hero ticker: named technologies only, nothing marked "(learning)". */
-export const tickerItems = skills
-  .filter((row) => ["Backend", "Frontend", "Data", "DevOps"].includes(row.group))
-  .flatMap((row) => split(row.items))
-  .filter((item) => /^[A-Z]/.test(item) && !item.includes("(learning)"));
-
 /**
- * Splits a level note off a skill: "Node.js (learning)" -> Node.js + "learning",
- * "German (B2)" -> German + "B2". Other brackets, like "Linux (Ubuntu)", stay as text.
+ * Named technologies from the given skill groups: proper names only
+ * (no "queues and jobs"), and nothing marked "(learning)".
  */
-export function parseSkill(item: string) {
-  const match = item.match(/^(.*?)\s*\((learning|professional|[ABC][12])\)$/i);
-  return match ? { name: match[1], note: match[2] } : { name: item, note: undefined };
-}
+export const namedTools = (groups: string[]) =>
+  skills
+    .filter((row) => groups.includes(row.group))
+    .flatMap((row) => split(row.items))
+    .filter((item) => /^[A-Z]/.test(item) && !item.includes("(learning)"));
+
+/** Tools for the hero tech row */
+export const tickerItems = namedTools(["Backend", "Frontend", "Data", "DevOps"]);
