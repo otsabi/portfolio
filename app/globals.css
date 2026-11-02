@@ -150,6 +150,199 @@
   }
 }
 
+/* Terminal cursor (components/motion/terminal-cursor.tsx) */
+.terminal-caret,
+.terminal-frame {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0;
+}
+.terminal-caret {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scale: 0.85;
+  transform-origin: top left;
+  filter: drop-shadow(0 0 8px rgb(134 214 170 / 0.25));
+  transition:
+    opacity 0.25s,
+    scale 0.25s;
+}
+/* Mini laptop: the screen... (keep size in sync with LAPTOP_W / LAPTOP_H in terminal-cursor.tsx) */
+.terminal-screen {
+  position: relative;
+  width: 96px;
+  height: 58px;
+  padding: 6px 6px 3px;
+  border: 2.5px solid #0d0d0f; /* thin black bezel */
+  border-bottom-width: 4px;
+  border-radius: 6px 6px 2px 2px;
+  background: #050506;
+  box-shadow:
+    0 0 0 1.5px #c9cbd0, /* silver aluminium edge */
+    0 0 14px rgb(134 214 170 / 0.18);
+  overflow: hidden;
+}
+/* Small camera dot centred in the top bezel */
+.terminal-screen::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #3a3c42;
+  translate: -50% 0;
+}
+.terminal-dots {
+  display: flex;
+  gap: 2.5px;
+  margin-bottom: 3px;
+}
+/* Window dots: red, yellow, green */
+.terminal-dots i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+.terminal-dots i:nth-child(2) {
+  background: #febc2e;
+}
+.terminal-dots i:nth-child(3) {
+  background: #28c840;
+}
+.terminal-output {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  line-height: 1.35;
+  color: var(--color-brand-300);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere; /* wrap between words; split only very long ones */
+}
+.terminal-prompt {
+  color: var(--color-mist-2);
+}
+/* Blinking block caret at the end of the typed text */
+.terminal-output::after {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 8px;
+  margin-left: 1px;
+  vertical-align: -1px;
+  background: var(--color-brand-400);
+  animation: caret-blink 1s steps(1, end) infinite;
+}
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+/* ...and the keyboard deck below it */
+/* Tilted back in perspective so it reads as an open laptop */
+.terminal-keyboard {
+  display: block;
+  width: 92px; /* about the screen's width once tilted */
+  height: 51.5px; /* 100 x 56 viewBox */
+  margin-top: -1px;
+  margin-bottom: -18px; /* the tilt makes it look shorter; drop the empty space */
+  transform: perspective(600px) rotateX(50deg);
+  transform-origin: top center;
+  transition: translate 0.12s ease-out;
+}
+.terminal-caret[data-pressed="true"] .terminal-keyboard {
+  translate: 0 1.5px;
+}
+.kb-body {
+  stroke: #f2f3f5; /* light silver edge */
+  stroke-width: 0.8;
+}
+.kb-key {
+  fill: #121214;
+}
+.kb-trackpad {
+  fill: rgb(0 0 0 / 0.08);
+  stroke: rgb(0 0 0 / 0.18);
+  stroke-width: 0.5;
+}
+/* A key lights up and dips when "pressed" by the typewriter */
+.kb-key.kb-hit {
+  animation: key-tap 0.22s ease-out;
+}
+@keyframes key-tap {
+  0% {
+    fill: var(--color-brand-300);
+    translate: 0 0.4px;
+  }
+  100% {
+    fill: #121214;
+    translate: 0 0;
+  }
+}
+/* The laptop always follows the mouse; it types while the mouse rests */
+.terminal-caret[data-visible="true"] {
+  opacity: 1;
+  scale: 1;
+}
+/* Over links the brackets take over (beats the resting rule above) */
+.terminal-caret[data-visible][data-hidden="true"] {
+  opacity: 0;
+  scale: 0.4;
+}
+.terminal-frame {
+  transition:
+    opacity 0.2s,
+    transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    width 0.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    height 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.terminal-frame[data-visible="true"] {
+  opacity: 1;
+}
+/* The two brackets: [ on the left, ] on the right */
+.terminal-frame::before,
+.terminal-frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  border: 2px solid var(--color-brand-400);
+}
+.terminal-frame::before {
+  left: 0;
+  border-right: 0;
+}
+.terminal-frame::after {
+  right: 0;
+  border-left: 0;
+}
+.terminal-char {
+  position: fixed;
+  z-index: 60;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-brand-400);
+  animation: char-float 0.7s ease-out forwards;
+}
+@keyframes char-float {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% - 1.5rem));
+  }
+}
+
 /* Tech ticker in the hero */
 @keyframes marquee {
   to {

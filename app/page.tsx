@@ -1,4 +1,5 @@
 import { About } from "@/components/sections/about";
+import { TerminalCursor } from "@/components/motion/terminal-cursor";
 import { Contact } from "@/components/sections/contact";
 import { Experience } from "@/components/sections/experience";
 import { Hero } from "@/components/sections/hero";
@@ -24,6 +25,7 @@ export default function Home() {
         <Contact />
       </main>
       <SiteFooter />
+      <TerminalCursor />
     </>
   );
 }
