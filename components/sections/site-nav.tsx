@@ -16,7 +16,9 @@ const initials = profile.name
 export function SiteNav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const activeId = sections[useActiveSection()]?.id;
+  // Sections without their own link light up the closest one
+  const sectionId = sections[useActiveSection()]?.id;
+  const activeId = sectionId === "about" ? "intro" : sectionId === "now" ? "experience" : sectionId;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -63,8 +65,10 @@ export function SiteNav() {
                     href={`#${link.id}`}
                     aria-current={active ? "location" : undefined}
                     className={cn(
-                      "inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 transition-colors",
-                      active ? "text-paper" : "text-mist hover:text-paper",
+                      "inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 transition-all duration-300",
+                      active
+                        ? "bg-brand-400/15 text-brand-300 ring-1 ring-brand-400/30"
+                        : "text-mist hover:bg-white/5 hover:text-paper",
                     )}
                   >
                     <span
@@ -82,7 +86,7 @@ export function SiteNav() {
             <li>
               <a
                 href={profile.resume}
-                download
+                download={profile.resumeFileName}
                 className="inline-flex rounded-full px-3.5 py-1.5 text-mist transition-colors hover:text-paper"
               >
                 Resume
@@ -112,14 +116,18 @@ export function SiteNav() {
                   <a
                     href={`#${link.id}`}
                     onClick={() => setOpen(false)}
-                    className="block py-2 text-3xl font-medium tracking-tight transition-colors hover:text-brand-400"
+                    aria-current={link.id === activeId ? "location" : undefined}
+                    className={cn(
+                      "block py-2 text-3xl font-medium tracking-tight transition-colors hover:text-brand-400",
+                      link.id === activeId && "text-brand-400",
+                    )}
                   >
                     {link.label}
                   </a>
                 </li>
               ))}
               <li>
-                <a href={profile.resume} download className="block py-2 text-3xl font-medium tracking-tight hover:text-brand-400">
+                <a href={profile.resume} download={profile.resumeFileName} className="block py-2 text-3xl font-medium tracking-tight hover:text-brand-400">
                   Resume
                 </a>
               </li>
