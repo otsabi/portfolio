@@ -1,11 +1,10 @@
-import { Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/container";
 import { HeroCanvas } from "@/components/motion/hero-canvas";
 import { LocalTime } from "@/components/motion/local-time";
 import { profile } from "@/data/profile";
 import { currentJob, tickerItems } from "@/lib/derived";
-
-const [firstName, ...rest] = profile.name.split(" ");
+import { btnArrow, btnGhost, btnOutline, btnPrimary } from "./buttons";
 
 export function Hero() {
   return (
@@ -17,81 +16,71 @@ export function Hero() {
       <HeroCanvas />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-48 -right-40 size-[42rem] rounded-full bg-brand-500/10 blur-3xl"
+        className="pointer-events-none absolute -top-56 right-[-10%] size-[46rem] rounded-full bg-brand-500/10 blur-3xl"
       />
 
-      <Container className="relative flex flex-1 flex-col justify-center py-16 sm:py-20">
-        <div className="flex animate-rise flex-wrap items-center gap-x-5 gap-y-3 text-sm text-mist">
-          <span className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5">
+      <Container className="relative flex flex-1 flex-col pt-8 pb-12">
+        {/* Status row */}
+        <div className="flex animate-rise flex-wrap items-center justify-between gap-x-6 gap-y-3">
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-[0.8rem] text-paper/85">
             <span aria-hidden="true" className="size-1.5 animate-pulse-dot rounded-full bg-brand-500" />
             Now: {currentJob.role} at {currentJob.company}
           </span>
-          <span className="inline-flex items-center gap-2">
+          <span className="inline-flex items-center gap-2 font-mono text-xs text-mist">
             {profile.location}
-            <span aria-hidden="true" className="text-white/20">/</span>
+            <span aria-hidden="true">·</span>
             <LocalTime />
           </span>
         </div>
 
-        <h1
-          id="intro-title"
-          className="mt-8 animate-rise text-[clamp(3rem,11vw,8.5rem)] leading-[0.9] font-semibold tracking-[-0.05em] [animation-delay:120ms]"
-        >
-          {firstName}
-          <br />
-          <span className="text-mist-2">{rest.join(" ")}</span>
-          <span className="sr-only">, {profile.title}</span>
-        </h1>
-
-        <p
-          aria-hidden="true"
-          className="mt-7 animate-rise font-mono text-xs tracking-[0.2em] text-brand-400 uppercase [animation-delay:220ms] sm:text-sm"
-        >
-          {profile.title}
-        </p>
-
-        <p className="mt-5 max-w-2xl animate-rise text-lg text-paper/85 [animation-delay:300ms] sm:text-2xl sm:leading-snug">
-          {profile.headline}
-        </p>
-
-        <div className="mt-10 flex animate-rise flex-wrap items-center gap-3 [animation-delay:400ms]">
-          <a
-            href="#work"
-            className="inline-flex h-12 items-center rounded-full bg-brand-500 px-6 font-medium text-ink transition-all hover:-translate-y-0.5 hover:bg-brand-400"
+        <div className="flex flex-1 flex-col justify-center py-16 sm:py-20">
+          <h1
+            id="intro-title"
+            className="animate-rise text-[clamp(3rem,10.5vw,8rem)] leading-[0.95] font-semibold tracking-[-0.045em] [animation-delay:100ms]"
           >
-            View my work
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex h-12 items-center rounded-full border border-white/15 px-6 font-medium transition-all hover:-translate-y-0.5 hover:border-paper/50"
-          >
-            Contact me
-          </a>
-          <a
-            href={profile.resume}
-            download
-            className="inline-flex h-12 items-center gap-2 px-3 text-mist underline-offset-4 transition-colors hover:text-paper hover:underline"
-          >
-            <Download aria-hidden="true" className="size-4" />
-            Résumé
-          </a>
+            {profile.name}
+            <span className="sr-only">, {profile.title}</span>
+          </h1>
+          <p className="mt-3 animate-rise text-[clamp(1.5rem,3.4vw,2.6rem)] font-medium tracking-[-0.02em] text-brand-400 [animation-delay:200ms]">
+            {profile.tagline}
+          </p>
+
+          <div className="mt-12 flex flex-col gap-8 lg:mt-16 lg:flex-row lg:items-end lg:justify-between">
+            <p className="max-w-xl animate-rise text-lg leading-relaxed text-paper/80 [animation-delay:300ms]">
+              {profile.headline}
+            </p>
+            <div className="flex animate-rise flex-wrap items-center gap-3 [animation-delay:400ms] lg:shrink-0 lg:flex-nowrap">
+              <a href="#work" className={btnPrimary}>
+                View my work
+                <ArrowRight aria-hidden="true" className={btnArrow} />
+              </a>
+              <a href="#contact" className={btnOutline}>
+                Contact me
+              </a>
+              <a href={profile.resume} download className={btnGhost}>
+                Resume
+              </a>
+            </div>
+          </div>
         </div>
       </Container>
 
-      {/* Skill ticker */}
-      <div className="marquee-mask relative overflow-hidden border-t border-white/10 py-5">
-        <div className="flex w-max animate-marquee">
+      {/* Tech ticker: two identical lists slide left forever; the second is hidden from screen readers */}
+      <div className="marquee relative animate-rise overflow-hidden border-y border-white/10 py-4 [animation-delay:500ms]">
+        <div className="marquee-track flex w-max">
           {[0, 1].map((copy) => (
             <ul
               key={copy}
-              aria-hidden={copy === 1 ? "true" : undefined}
               aria-label={copy === 0 ? "Technologies" : undefined}
-              className="flex shrink-0 items-center gap-10 pr-10 font-mono text-sm tracking-wide text-mist"
+              aria-hidden={copy === 1 ? "true" : undefined}
+              className="marquee-copy flex shrink-0 items-center font-mono text-xs text-mist sm:text-[0.8rem]"
             >
               {tickerItems.map((item) => (
-                <li key={item} className="flex items-center gap-10 whitespace-nowrap">
+                <li key={item} className="inline-flex items-center whitespace-nowrap">
                   {item}
-                  <span aria-hidden="true" className="size-1 rounded-full bg-brand-500/70" />
+                  <span aria-hidden="true" className="px-4 text-brand-500/70">
+                    ·
+                  </span>
                 </li>
               ))}
             </ul>

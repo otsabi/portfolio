@@ -47,7 +47,7 @@ export function HeroCanvas() {
           const near = Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / 180);
           const size = 1.2 + wave * 1.4 + near * 3;
           if (near > 0.02) {
-            ctx.fillStyle = `rgba(255, 91, 46, ${0.15 + near * 0.75})`;
+            ctx.fillStyle = `rgba(134, 214, 170, ${0.15 + near * 0.75})`;
           } else {
             ctx.fillStyle = `rgba(243, 240, 234, ${0.05 + wave * 0.13})`;
           }
@@ -72,7 +72,9 @@ export function HeroCanvas() {
       pointer.tx = e.clientX - r.left;
       pointer.ty = e.clientY - r.top;
     };
-    const onLeave = () => {
+    // Fires when the mouse leaves the window (relatedTarget is null)
+    const onLeave = (e: MouseEvent) => {
+      if (e.relatedTarget) return;
       pointer.tx = -9999;
       pointer.ty = -9999;
     };
@@ -92,7 +94,7 @@ export function HeroCanvas() {
     io.observe(canvas);
     ro.observe(canvas);
     window.addEventListener("pointermove", onMove, { passive: true });
-    document.addEventListener("pointerleave", onLeave);
+    document.addEventListener("mouseout", onLeave);
     document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
@@ -100,7 +102,7 @@ export function HeroCanvas() {
       io.disconnect();
       ro.disconnect();
       window.removeEventListener("pointermove", onMove);
-      document.removeEventListener("pointerleave", onLeave);
+      document.removeEventListener("mouseout", onLeave);
       document.removeEventListener("visibilitychange", onVisibility);
     };
   }, []);
