@@ -12,6 +12,7 @@ export const profile = {
   intro:
     "I'm a problem solver who builds and ships business software end to end, from the database to the screen. Since 2019 I've grown from Laravel developer to full-stack engineer, and lately I've been bringing AI into real products. This site is the latest thing I've shipped.",
   email: 'sabi.othmane@gmail.com',
+  website: 'https://www.othmanesabi.dev',
   github: 'https://github.com/otsabi',
   linkedin: 'https://www.linkedin.com/in/othmane-sabi',
   resume: '/resume.pdf', // the PDF in public/; replace that file to update it
@@ -45,7 +46,7 @@ export const experience: Job[] = [
       'Built a 5-module CRM that centralizes sales, stock, invoicing and payments, ending manual Excel tracking and securing financial data with role-based access.',
       'Delivered management dashboards and a field-team module that give the business real-time visibility on operations.',
       'Made the CRM multi-tenant (stancl/tenancy) so it can be sold as a SaaS to other companies.',
-      'Set up CI/CD with GitHub Actions that runs tests and migrations before every release to Laravel Cloud, with Docker and Sentry monitoring.',
+      'Set up CI/CD with GitHub Actions that runs tests and migrations before every release to Laravel Cloud with Docker, with ESLint and Prettier enforcing code quality.',
     ],
     stack: 'Laravel, REST API, MySQL, Filament, React, Redux, TypeScript, Docker, GitHub Actions',
   },
@@ -61,15 +62,15 @@ export const experience: Job[] = [
       'Contributed to a conditional questionnaire engine showing 100 to 300 questions as a tree, so clients only see what applies to them.',
       'Wrote technical design docs, estimated features in sprint planning, and mentored a junior developer through code reviews.',
     ],
-    stack: 'Laravel, Vue.js, Nuxt, React, Inertia.js, Redis, MongoDB, Vitest, Java, Spring Boot',
+    stack: 'Laravel, Vue.js, Nuxt, React, Inertia.js, Redis, MongoDB, Vitest',
   },
   {
     company: 'Petrom',
-    role: 'Tech Lead, Full-Stack Developer',
+    role: 'Software Engineer, Enterprise Integrations & Platform',
     period: '2023 to 2024',
-    context: 'Fuel distribution company. Led a team of 4 developers for about a year.',
+    context: 'Fuel distribution company. Worked within a team of 4 developers, driving the architecture decisions and splitting the work.',
     points: [
-      'Led the migration of a legacy PHP 5 CRM serving 100+ service stations to Laravel microservices, module by module, with a progressive rollout.',
+      'Modernized a legacy PHP 5 CRM serving 100+ service stations into Laravel microservices, module by module, with a progressive rollout.',
       'Built SAP-to-CRM integrations (SOAP, queued jobs) that automate invoicing, data sync and reporting, with error handling and recovery.',
       'Added real-time updates over WebSocket (Laravel Echo, Pusher), so users see changes without reloading the page.',
       "Restored availability after a client's ERP flooded the API: traced the root cause and added per-client rate limiting.",
@@ -116,7 +117,7 @@ export const projects: Project[] = [
     status: 'Live',
     description: 'Built with Next.js. All the content comes from one data file, deployed on Vercel.',
     stack: 'Next.js, React, TypeScript',
-    link: 'https://github.com/otsabi',
+    link: 'https://github.com/otsabi/portfolio',
   },
   {
     name: 'MoSuite',
@@ -138,7 +139,7 @@ export const skills: { group: string; items: string }[] = [
   { group: 'Backend', items: 'PHP, Laravel, REST APIs, queues and jobs, Python, Java, Spring Boot, Node.js' },
   { group: 'Frontend', items: 'React, Redux, Vue.js, Nuxt, Pinia, Next.js, TypeScript, Tailwind CSS, Inertia.js, Vite, Livewire, Filament' },
   { group: 'Data', items: 'MySQL, PostgreSQL, MongoDB, Redis, indexing, stored procedures' },
-  { group: 'DevOps', items: 'Linux (Ubuntu), Docker, GitHub Actions, Nginx, Apache, Laravel Cloud, Vercel, DigitalOcean, Sentry, AWS' },
+  { group: 'DevOps', items: 'Linux (Ubuntu), Docker, GitHub Actions, Nginx, Apache, Laravel Cloud, Vercel, DigitalOcean, AWS' },
   { group: 'Testing & tools', items: 'PHPUnit, Vitest, Playwright, Postman' },
   { group: 'Practices', items: 'TDD, clean architecture, code review, accessibility (WCAG AA), security and data privacy' },
 ]

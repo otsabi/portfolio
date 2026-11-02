@@ -15,6 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(profile.website),
+  alternates: { canonical: "/" },
   title: `${profile.name}, ${profile.title}`,
   // Search snippet: say plainly who and where, then the headline
   description: `${profile.title} in ${profile.location}. ${profile.headline}`,
