@@ -1,43 +1,51 @@
-import { SpotlightCard } from "@/components/motion/spotlight-card";
 import { skills } from "@/data/profile";
-import { parseSkill, split } from "@/lib/derived";
+import { namedTools, split } from "@/lib/derived";
 import { Section } from "./section";
+
+// Big flowing list: backend and data in paper, frontend and DevOps in brand green
+const primary = namedTools(["Backend", "Data"]);
+const accent = namedTools(["Frontend", "DevOps"]);
+
+function Flow({ items, className }: { items: string[]; className?: string }) {
+  return (
+    <span className={className}>
+      {items.map((item, i) => (
+        <span key={item}>
+          {/* keep each name and its dot together; the space after is a break point */}
+          <span className="whitespace-nowrap">
+            {item}
+            {i < items.length - 1 && (
+              <span aria-hidden="true" className="opacity-50">
+                {" "}·
+              </span>
+            )}
+          </span>{" "}
+        </span>
+      ))}
+    </span>
+  );
+}
 
 export function Skills() {
   return (
-    <Section id="skills" title="What I work with, end to end.">
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <Section id="skills" title="What I work with, from database to interface.">
+      <p className="reveal max-w-5xl text-[clamp(1.6rem,4vw,3rem)] leading-[1.2] font-medium tracking-[-0.025em]">
+        <Flow items={primary} className="text-paper/90" />
+        <br />
+        <Flow items={accent} className="text-brand-400" />
+      </p>
+
+      <ol className="mt-16 grid gap-x-12 md:grid-cols-2">
         {skills.map((row, i) => (
-          <li key={row.group} className="reveal">
-            <SpotlightCard className="h-full p-6 sm:p-7">
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="text-xl font-semibold tracking-tight">{row.group}</h3>
-                <span className="font-mono text-xs text-mist-2 transition-colors group-hover:text-brand-400">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <ul className="mt-5 flex flex-wrap gap-2">
-                {split(row.items).map((item) => {
-                  const { name, note } = parseSkill(item);
-                  return (
-                    <li
-                      key={item}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-sm text-paper/90"
-                    >
-                      {name}
-                      {note && (
-                        <span className="font-mono text-[0.65rem] tracking-wider text-brand-300 uppercase">
-                          {note}
-                        </span>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </SpotlightCard>
+          <li key={row.group} className="reveal grid grid-cols-[2.25rem_1fr] border-t border-white/10 py-6">
+            <span className="pt-0.5 font-mono text-xs text-mist-2">{String(i + 1).padStart(2, "0")}</span>
+            <div>
+              <h3 className="font-medium">{row.group}</h3>
+              <p className="mt-2 font-mono text-xs leading-relaxed text-mist">{split(row.items).join(" / ")}</p>
+            </div>
           </li>
         ))}
-      </ul>
+      </ol>
     </Section>
   );
 }
