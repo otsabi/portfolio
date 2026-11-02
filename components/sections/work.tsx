@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Lock } from "lucide-react";
 import { useState } from "react";
 import { Container } from "@/components/container";
 import { projects } from "@/data/profile";
@@ -71,6 +71,12 @@ export function Work() {
                       {project.link.replace(/^https?:\/\//, "")}
                       <ArrowUpRight aria-hidden="true" className="size-4" />
                     </a>
+                  )}
+                  {project.privateNote && (
+                    <p className="mt-4 inline-flex items-center gap-1.5 text-sm text-mist">
+                      <Lock aria-hidden="true" className="size-3.5" />
+                      {project.privateNote}
+                    </p>
                   )}
                   </div>
                 </li>
