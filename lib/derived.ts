@@ -13,13 +13,13 @@ export const firstYear = Math.min(...experience.map((job) => startYear(job.perio
 
 /**
  * Named technologies from the given skill groups: proper names only
- * (no "queues and jobs"), and nothing marked "(learning)".
+ * (no "queues and jobs").
  */
 export const namedTools = (groups: string[]) =>
   skills
     .filter((row) => groups.includes(row.group))
     .flatMap((row) => split(row.items))
-    .filter((item) => /^[A-Z]/.test(item) && !item.includes("(learning)"));
+    .filter((item) => /^[A-Z]/.test(item));
 
 /** Tools for the hero tech row */
 export const tickerItems = namedTools(["Backend", "Frontend", "Data", "DevOps"]);
