@@ -7,7 +7,7 @@ export const profile = {
   tagline: 'Front to back by day, problem solver by night.', // green line under the name in the hero
   location: 'Ottawa, ON',
   headline:
-    "Give me a messy process and a blank repo, and I'll hand you back a product people actually use.",
+    'I turn complex business processes into clean, maintainable web applications, from the data model to the interface.',
   focus: 'building a SaaS CRM', // used in "Right now: … at <current company>."
   intro:
     "I'm a problem solver who builds and ships business software end to end, from the database to the screen. Since 2019 I've grown from Laravel developer to full-stack engineer, and lately I've been bringing AI into real products. This site is the latest thing I've shipped.",
