@@ -34,7 +34,7 @@ export function Contact() {
           <a href={`mailto:${profile.email}`} className={btnOutline}>
             {profile.email}
           </a>
-          <a href={profile.resume} download className={btnGhost}>
+          <a href={profile.resume} download={profile.resumeFileName} className={btnGhost}>
             Download resume
             <Download aria-hidden="true" className="size-4" />
           </a>

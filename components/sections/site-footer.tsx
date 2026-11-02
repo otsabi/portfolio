@@ -64,7 +64,7 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <a href={profile.resume} download className={link}>
+              <a href={profile.resume} download={profile.resumeFileName} className={link}>
                 Resume (PDF)
               </a>
             </li>

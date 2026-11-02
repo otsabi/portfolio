@@ -57,7 +57,7 @@ export function Hero() {
               <a href="#contact" className={btnOutline}>
                 Contact me
               </a>
-              <a href={profile.resume} download className={btnGhost}>
+              <a href={profile.resume} download={profile.resumeFileName} className={btnGhost}>
                 Resume
               </a>
             </div>
