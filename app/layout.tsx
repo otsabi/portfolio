@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: `${profile.name}, ${profile.title}`,
-  // The headline reads better than the intro as a search result snippet
-  description: profile.headline,
+  // Search snippet: say plainly who and where, then the headline
+  description: `${profile.title} in ${profile.location}. ${profile.headline}`,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
