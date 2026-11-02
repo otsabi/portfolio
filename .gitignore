@@ -44,3 +44,7 @@ next-env.d.ts
 AGENTS.md
 CLAUDE.md
 .claude/
+
+# Research notes and reports (not part of the site)
+research_notes/
+reports/
