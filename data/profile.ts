@@ -4,10 +4,13 @@
 export const profile = {
   name: 'Othmane Sabi',
   title: 'Full-Stack Software Engineer',
+  tagline: 'Front to back by day, problem solver by night.', // green line under the name in the hero
   location: 'Ottawa, ON',
-  headline: 'I build the software that replaces spreadsheets and legacy systems.',
+  headline:
+    'PHP and Laravel at the core, React, Vue.js, Next.js and Nuxt on the front, Java and Spring Boot where they fit — I turn Excel workflows and legacy code into CRMs and SaaS platforms.',
+  focus: 'building a SaaS CRM', // used in "Right now: … at <current company>."
   intro:
-    'Full-stack engineer working with Laravel, React, Vue.js and MySQL since 2019. I have built CRMs, SaaS platforms and e-commerce sites for companies in energy, fuel distribution, ESG compliance and health retail. I work in English and French.',
+    "I'm a problem solver who builds and ships business software end to end, from the database to the screen. Since 2019 I've grown from Laravel developer to full-stack engineer and tech lead, and lately I've been bringing AI into real products. This site is the latest thing I've shipped.",
   email: 'sabi.othmane@gmail.com',
   github: 'https://github.com/otsabi',
   linkedin: 'https://www.linkedin.com/in/othmane-sabi',
@@ -26,9 +29,9 @@ export type Job = {
 export const experience: Job[] = [
   {
     company: 'Akawatt Energy Services',
-    role: 'Full-Stack Developer (Contract)',
+    role: 'Full-Stack Developer',
     period: '2025 to now',
-    context: 'Energy services startup in Casablanca. Sole developer, working directly with the client.',
+    context: 'Energy services startup in Casablanca.',
     points: [
       'Built a 5-module CRM that replaced manual Excel files for sales, stock, logistics, field teams, billing and payments.',
       'Made the CRM multi-tenant (stancl/tenancy) so it can be sold as a SaaS to other companies.',
@@ -66,7 +69,7 @@ export const experience: Job[] = [
     period: '2022 to 2023',
     context: 'Distribution company.', // TODO: confirm or improve this one-line description
     points: [
-      'Automated the billing process. My former manager recently told me it still runs today.',
+      'Automated the billing process, which is still in use today.',
       'Connected the vTiger CRM to internal tools with webhooks.',
     ],
     stack: 'Laravel, PHP, MySQL, vTiger',
