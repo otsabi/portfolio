@@ -28,7 +28,7 @@ function Flow({ items, className }: { items: string[]; className?: string }) {
 
 export function Skills() {
   return (
-    <Section id="skills" title="What I work with, from database to interface.">
+    <Section id="skills" title="The toolbox I bring to every project.">
       <p className="reveal max-w-5xl text-[clamp(1.6rem,4vw,3rem)] leading-[1.2] font-medium tracking-[-0.025em]">
         <Flow items={primary} className="text-paper/90" />
         <br />
