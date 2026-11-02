@@ -1,73 +1,42 @@
-import { Download, Mail } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { Container } from "@/components/container";
 import { profile } from "@/data/profile";
-import { sectionNumber } from "./nav-items";
+import { btnArrow, btnGhost, btnOutline, btnPrimary } from "./buttons";
+import { Eyebrow } from "./section";
 
 export function Contact() {
   return (
     <section
       id="contact"
       aria-labelledby="contact-title"
-      className="relative overflow-hidden border-t border-white/10 py-24 sm:py-36"
+      className="relative overflow-hidden border-t border-white/10 py-28 text-center sm:py-40"
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-64 left-1/2 size-[44rem] -translate-x-1/2 rounded-full bg-brand-500/15 blur-3xl"
+        className="pointer-events-none absolute top-1/2 left-1/2 size-[48rem] -translate-x-1/2 -translate-y-1/3 rounded-full bg-brand-500/[0.12] blur-3xl"
       />
-      <Container className="reveal relative">
-        <p className="flex items-center gap-3 font-mono text-[0.72rem] tracking-[0.18em] text-mist uppercase">
-          <span className="text-brand-400">{sectionNumber("contact")}</span>
-          <span aria-hidden="true" className="h-px w-8 bg-white/20" />
-          <span>Let&apos;s talk</span>
-        </p>
+      <Container className="reveal relative flex flex-col items-center">
+        <Eyebrow id="contact" className="justify-center" />
         <h2
           id="contact-title"
-          className="mt-6 text-[clamp(3rem,10vw,7.5rem)] leading-[0.92] font-semibold tracking-[-0.05em]"
+          className="mt-6 text-[clamp(3.25rem,11vw,8rem)] leading-[0.92] font-semibold tracking-[-0.05em]"
         >
-          Let&apos;s talk<span className="text-brand-500">.</span>
+          Let&apos;s <span className="text-brand-400">talk</span>.
         </h2>
-        <p className="mt-6 max-w-xl text-lg text-mist">
-          {profile.title}, {profile.location}.
+        <p className="mt-6 max-w-md text-mist">
+          {profile.title} · {profile.location}
         </p>
-
-        <a
-          href={`mailto:${profile.email}`}
-          className="mt-10 inline-block text-[clamp(1.35rem,4.5vw,2.75rem)] font-medium tracking-tight break-all underline decoration-white/20 decoration-2 underline-offset-8 transition-colors hover:text-brand-400 hover:decoration-brand-500"
-        >
-          {profile.email}
-        </a>
-
-        <div className="mt-10 flex flex-wrap items-center gap-3">
-          <a
-            href={`mailto:${profile.email}`}
-            className="inline-flex h-12 items-center gap-2 rounded-full bg-brand-500 px-6 font-medium text-ink transition-all hover:-translate-y-0.5 hover:bg-brand-400"
-          >
-            <Mail aria-hidden="true" className="size-4" />
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <a href={`mailto:${profile.email}`} className={btnPrimary}>
             Email me
+            <ArrowRight aria-hidden="true" className={btnArrow} />
           </a>
-          <a
-            href={profile.resume}
-            download
-            className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-6 font-medium transition-all hover:-translate-y-0.5 hover:border-paper/50"
-          >
+          <a href={`mailto:${profile.email}`} className={btnOutline}>
+            {profile.email}
+          </a>
+          <a href={profile.resume} download className={btnGhost}>
+            Download resume
             <Download aria-hidden="true" className="size-4" />
-            Download résumé
-          </a>
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-12 items-center px-4 text-mist transition-colors hover:text-paper"
-          >
-            LinkedIn
-          </a>
-          <a
-            href={profile.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-12 items-center px-4 text-mist transition-colors hover:text-paper"
-          >
-            GitHub
           </a>
         </div>
       </Container>

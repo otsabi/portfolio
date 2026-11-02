@@ -23,7 +23,7 @@ export function SiteFooter() {
       </h2>
       <Container className="grid gap-12 py-16 md:grid-cols-[1.6fr_1fr_1fr]">
         <div>
-          <p className={heading}>Let&apos;s talk</p>
+          <p className={heading}>Email</p>
           <a
             href={`mailto:${profile.email}`}
             className="mt-4 inline-block text-xl font-medium tracking-tight break-all transition-colors hover:text-brand-400 sm:text-2xl"
@@ -65,7 +65,7 @@ export function SiteFooter() {
             </li>
             <li>
               <a href={profile.resume} download className={link}>
-                Résumé (PDF)
+                Resume (PDF)
               </a>
             </li>
           </ul>
