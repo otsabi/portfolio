@@ -4,9 +4,9 @@ import { brandColor, TechIcon } from "@/lib/tech-icons";
 import { Section } from "./section";
 
 // Big flowing list, each tech in its own brand color with its logo:
-// backend and data on the first lines, frontend and DevOps below
+// backend and data on the first lines, frontend and cloud below
 const primary = namedTools(["Backend", "Data"]);
-const accent = namedTools(["Frontend", "DevOps"]);
+const accent = namedTools(["Frontend", "Cloud & platform"]);
 
 function Flow({ items }: { items: string[] }) {
   return (

@@ -26,7 +26,7 @@ export function About() {
         {/* Impact KPIs from production work */}
         <dl
           aria-label="Engineering impact"
-          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-4"
+          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-3"
         >
           {impact.map((kpi) => (
             <div key={kpi.label} className="reveal flex flex-col-reverse gap-1 bg-ink-2 p-5 sm:p-7">

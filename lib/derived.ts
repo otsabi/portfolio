@@ -22,4 +22,4 @@ export const namedTools = (groups: string[]) =>
     .filter((item) => /^[A-Z]/.test(item));
 
 /** Tools for the hero tech row */
-export const tickerItems = namedTools(["Backend", "Frontend", "Data", "DevOps"]);
+export const tickerItems = namedTools(["Backend", "Frontend", "Data", "Cloud & platform"]);

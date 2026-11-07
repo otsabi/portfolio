@@ -50,7 +50,6 @@ import {
   siPython,
   siReact,
   siRedux,
-  siSentry,
   siSpringboot,
   siTailwindcss,
   siTypescript,
@@ -63,6 +62,8 @@ import {
 const brands: Record<string, SimpleIcon> = {
   PHP: siPhp,
   Laravel: siLaravel,
+  "PHP/Laravel": siLaravel,
+  "Java/Spring Boot": siSpringboot,
   Python: siPython,
   Java: siOpenjdk,
   "Spring Boot": siSpringboot,
@@ -75,6 +76,7 @@ const brands: Record<string, SimpleIcon> = {
   "Next.js": siNextdotjs,
   TypeScript: siTypescript,
   "Tailwind CSS": siTailwindcss,
+  Tailwind: siTailwindcss,
   Livewire: siLivewire,
   Filament: siFilament,
   MySQL: siMysql,
@@ -88,7 +90,6 @@ const brands: Record<string, SimpleIcon> = {
   "Laravel Cloud": siLaravel,
   Vercel: siVercel,
   DigitalOcean: siDigitalocean,
-  Sentry: siSentry,
   Redis: siRedis,
   "Inertia.js": siInertia,
   Vite: siVite,
@@ -104,6 +105,7 @@ const brands: Record<string, SimpleIcon> = {
 
 const concepts: Record<string, LucideIcon> = {
   "REST APIs": Braces,
+  microservices: Blocks,
   "REST API": Braces,
   REST: Braces,
   SOAP: FileCode,
