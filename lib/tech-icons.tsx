@@ -9,7 +9,6 @@ import {
   Handshake,
   Braces,
   Cloud,
-  Database,
   Drama,
   FlaskConical,
   GitPullRequest,
@@ -21,6 +20,7 @@ import {
 } from "lucide-react";
 import {
   siApache,
+  siGitlab,
   siPusher,
   siSap,
   siStoryblok,
@@ -85,6 +85,7 @@ const brands: Record<string, SimpleIcon> = {
   Linux: siUbuntu,
   Docker: siDocker,
   "GitHub Actions": siGithubactions,
+  "GitLab CI": siGitlab,
   Nginx: siNginx,
   Apache: siApache,
   "Laravel Cloud": siLaravel,
@@ -113,7 +114,6 @@ const concepts: Record<string, LucideIcon> = {
   Plecto: ChartColumn,
   "queues and jobs": ListChecks,
   indexing: Search,
-  "stored procedures": Database,
   AWS: Cloud,
   TDD: FlaskConical,
   "clean architecture": Blocks,

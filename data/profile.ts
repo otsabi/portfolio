@@ -58,20 +58,20 @@ export const experience: Job[] = [
     period: '2024 - 2025',
     context: 'ESG and HSE sustainability software publisher and consulting firm in Casablanca, Morocco.',
     points: [
-      'Collaborated with a team of 4 developers, a manager and a product owner to design and evolve an ESG/HSE SaaS platform (Laravel, Vue.js/Nuxt, TypeScript, Inertia.js).',
+      'Collaborated with a team of 4 developers, a manager and a product owner on an ESG/HSE SaaS platform, designing robust and secure REST APIs in Laravel and Java/Spring Boot with a Nuxt/TypeScript front end.',
       'Increased deployment frequency by approximately 2x and cut the change failure rate by approximately 30% through standardized Git workflows, automated testing and repeatable CI/CD pipelines (GitLab CI, Docker).',
       'Cut lead time for changes by approximately 40% through reusable components, pull request reviews and delivery automation.',
       'Contributed to a conditional questionnaire engine showing 100 to 300 questions as a tree, so clients only see what applies to them.',
-      'Wrote technical design docs and estimated features in sprint planning.',
+      'Wrote technical specifications and estimated features in sprint planning.',
       'Mentored a junior developer through code reviews, from our Storybook component documentation to integration in the codebase.',
     ],
-    stack: 'Laravel, Vue.js, Nuxt, React, Inertia.js, Redis, MongoDB, Vitest',
+    stack: 'Laravel, Java/Spring Boot, Vue.js, Nuxt, TypeScript, React, Inertia.js, Redis, MongoDB, GitLab CI, Docker, Vitest',
   },
   {
     company: 'Petrom',
     role: 'Software Engineer - Enterprise Integrations & Platform',
     period: '2023 - 2024',
-    context: 'Fuel distribution company in Casablanca, Morocco. Worked within a team of 4 developers, driving the architecture decisions and splitting the work.',
+    context: "Fuel distribution company in Casablanca, Morocco. Within a team of 4 developers, I led the architecture decisions, split the work and reviewed the team's code, gathered requirements with the director, set up the servers from scratch, and supported the legacy CRM in production during its migration.",
     points: [
       'Designed and implemented, within a team of 4 developers, a Java/Spring Boot and Laravel microservices architecture replacing a legacy PHP CRM supporting 100+ service stations, migrated module by module with a gradual rollout.',
       'Developed SAP-to-CRM integrations (SOAP APIs, Laravel queued jobs) automating invoicing, data synchronization and reporting.',
@@ -87,7 +87,7 @@ export const experience: Job[] = [
     company: 'Smart Call Distribution (now TalkLab)',
     role: 'Software Engineer - CRM Automation & APIs',
     period: '2022 - 2023',
-    context: 'Casablanca call center (now TalkLab), working for Ipsys, a Belgian provider of business telecom and internet services.',
+    context: 'Casablanca, Morocco call center (now TalkLab), working for Ipsys, a Belgian provider of business telecom and internet services.',
     points: [
       'Integrated vTiger CRM with Plecto through webhooks to provide real-time sales KPIs (Laravel, Vue.js).',
       'Automated 100% of a previously manual subscription-billing workflow, eliminating recurring billing errors.',
@@ -143,8 +143,8 @@ export const projects: Project[] = [
 export const skills: { group: string; items: string }[] = [
   { group: 'Backend', items: 'PHP/Laravel, Java/Spring Boot, Python, REST APIs, microservices, Redis, Node.js' },
   { group: 'Frontend', items: 'TypeScript, Vue.js, React, Next.js, Redux, Nuxt, Livewire, Tailwind' },
-  { group: 'Data', items: 'MySQL, PostgreSQL, MongoDB, indexing, stored procedures' },
-  { group: 'Cloud & platform', items: 'AWS (Cloud Practitioner in progress), Docker, GitHub Actions, GitLab CI, Linux, Nginx, Apache, Laravel Cloud, Vercel, DigitalOcean' },
+  { group: 'Data', items: 'MySQL, PostgreSQL, MongoDB, indexing' },
+  { group: 'Cloud & platform', items: 'AWS, Docker, GitHub Actions, GitLab CI, Linux, Nginx, Apache, Laravel Cloud, Vercel, DigitalOcean' },
   { group: 'Testing & tools', items: 'PHPUnit, Vitest, Playwright, Postman' },
   { group: 'Practices', items: 'TDD, clean architecture, code review, accessibility (WCAG AA), security and data privacy' },
 ]
