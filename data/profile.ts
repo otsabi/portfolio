@@ -87,7 +87,7 @@ export const experience: Job[] = [
     company: 'Smart Call Distribution (now TalkLab)',
     role: 'Software Engineer - CRM Automation & APIs',
     period: '2022 - 2023',
-    context: 'Casablanca, Morocco call center (now TalkLab), working for Ipsys, a Belgian provider of business telecom and internet services.',
+    context: 'Casablanca, Morocco-based company (now TalkLab) and partner of Ipsys, a Belgian provider of business telecom and internet services. I built its CRM integrations and billing automation.',
     points: [
       'Integrated vTiger CRM with Plecto through webhooks to provide real-time sales KPIs (Laravel, Vue.js).',
       'Automated 100% of a previously manual subscription-billing workflow, eliminating recurring billing errors.',
