@@ -3,14 +3,14 @@
 
 export const profile = {
   name: 'Othmane Sabi',
-  title: 'Full-Stack Software Engineer',
+  title: 'Full-Stack Developer',
   tagline: 'Front to back by day, problem solver by night.', // green line under the name in the hero
   location: 'Ottawa, ON',
   headline:
     'I turn complex business processes into clean, maintainable web applications, from the data model to the interface.',
   focus: 'building a SaaS CRM', // used in "Right now: … at <current company>."
   intro:
-    "I'm a problem solver who builds and ships business software end to end, from the database to the screen. Since 2019 I've grown from Laravel developer to full-stack engineer, and lately I've been bringing AI into real products. This site is the latest thing I've shipped.",
+    "I'm a problem solver who builds and ships business software end to end, from the database to the screen. Since 2019 I've grown from Laravel developer to full-stack developer, and lately I've been bringing AI into real products. This site is the latest thing I've shipped.",
   email: 'sabi.othmane@gmail.com',
   website: 'https://www.othmanesabi.dev',
   github: 'https://github.com/otsabi',
@@ -24,7 +24,7 @@ export const impact: { value: string; label: string; note: string }[] = [
   { value: '2x', label: 'Deployment frequency', note: 'CI/CD delivery' },
   { value: '-40%', label: 'Lead time for changes', note: 'Reusable components, automation' },
   { value: '-35%', label: 'p95 API latency', note: 'SQL, Redis caching' },
-  { value: '99.9%', label: 'Availability target', note: 'SaaS in production' },
+  { value: '99.9%', label: 'Availability target', note: 'Production target' },
 ]
 
 export type Job = {
@@ -56,9 +56,8 @@ export const experience: Job[] = [
     period: '2024 to 2025',
     context: 'SaaS platform for ESG and HSE compliance. Team of 4 developers, a manager and a product owner.',
     points: [
-      'Reduced p95 API latency by about 35% through SQL optimization, Redis caching and smaller payloads.',
       'Doubled deployment frequency with standardized Git workflows, automated tests (Vitest) and repeatable CI/CD pipelines.',
-      'Cut lead time for changes by about 40% with reusable components and automated delivery, while holding a 99.9% availability target.',
+      'Cut lead time for changes by about 40% with reusable components and automated delivery.',
       'Contributed to a conditional questionnaire engine showing 100 to 300 questions as a tree, so clients only see what applies to them.',
       'Wrote technical design docs, estimated features in sprint planning, and mentored a junior developer through code reviews.',
     ],
@@ -70,13 +69,15 @@ export const experience: Job[] = [
     period: '2023 to 2024',
     context: 'Fuel distribution company. Worked within a team of 4 developers, driving the architecture decisions and splitting the work.',
     points: [
-      'Modernized a legacy PHP 5 CRM serving 100+ service stations into Laravel microservices, module by module, with a progressive rollout.',
+      'Modernized a legacy PHP 5 CRM serving 100+ service stations into Java/Spring Boot and Laravel microservices, module by module, with a progressive rollout.',
       'Built SAP-to-CRM integrations (SOAP, queued jobs) that automate invoicing, data sync and reporting, with error handling and recovery.',
+      'Reduced p95 API latency by about 35% through indexing, query rewrites, shorter transactions and Redis caching.',
+      'Held a 99.9% availability target by strengthening logs, release procedures and Linux troubleshooting.',
       'Added real-time updates over WebSocket (Laravel Echo, Pusher), so users see changes without reloading the page.',
       "Restored availability after a client's ERP flooded the API: traced the root cause and added per-client rate limiting.",
       'Built a prototype assistant that answers questions in French about sales and stations by turning them into SQL, using a self-hosted Ollama model.',
     ],
-    stack: 'Laravel, Vue.js, MySQL, REST, SOAP, SAP, Python, Laravel Echo, Pusher',
+    stack: 'Laravel, Vue.js, MySQL, REST, SOAP, SAP, Python, Laravel Echo, Pusher, Java, Spring Boot, Redis',
   },
   {
     company: 'Smart Call Distribution',
@@ -123,7 +124,7 @@ export const projects: Project[] = [
     name: 'MoSuite',
     status: 'In progress',
     description: 'A multi-company SaaS that helps small businesses manage their stock and daily operations.',
-    stack: 'Laravel 12, React 19, TypeScript, Inertia.js, Tailwind CSS, MySQL',
+    stack: 'Laravel, React, TypeScript, Inertia.js, Tailwind CSS, MySQL',
     privateNote: 'Private client project, code not public',
   },
   {
@@ -136,7 +137,7 @@ export const projects: Project[] = [
 ]
 
 export const skills: { group: string; items: string }[] = [
-  { group: 'Backend', items: 'PHP, Laravel, REST APIs, queues and jobs, Python, Java, Spring Boot, Node.js' },
+  { group: 'Backend', items: 'PHP, Laravel, REST APIs, queues and jobs, Python, Java, Spring Boot, Node.js (basic)' },
   { group: 'Frontend', items: 'React, Redux, Vue.js, Nuxt, Pinia, Next.js, TypeScript, Tailwind CSS, Inertia.js, Vite, Livewire, Filament' },
   { group: 'Data', items: 'MySQL, PostgreSQL, MongoDB, Redis, indexing, stored procedures' },
   { group: 'DevOps', items: 'Linux (Ubuntu), Docker, GitHub Actions, Nginx, Apache, Laravel Cloud, Vercel, DigitalOcean, AWS' },
